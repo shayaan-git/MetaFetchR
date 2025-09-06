@@ -3,8 +3,6 @@
 Metafetchr is a backend API built with **Express.js**, **Supabase**, and **Arcjet** for scraping and storing website metadata.  
 It also includes optional **AI enhancement** of descriptions using OpenAI.
 
----
-
 ## 🚀 Features
 - Analyze a website to extract **brand name** and **description**
 - **CRUD API** for managing stored websites
@@ -13,8 +11,6 @@ It also includes optional **AI enhancement** of descriptions using OpenAI.
 - **Rate limiting** on `/api/analyze` using Arcjet
 - **Optional AI enhancement** of descriptions (via OpenAI GPT-3.5)
 
----
-
 ## 📦 Tech Stack
 - Node.js (ESM)
 - Express.js
@@ -22,8 +18,6 @@ It also includes optional **AI enhancement** of descriptions using OpenAI.
 - Arcjet (rate limiting)
 - Cheerio + Axios (scraping)
 - OpenAI (optional AI)
-
----
 
 ## ⚙️ Setup
 
@@ -60,3 +54,80 @@ ARCJET_ENV=development
 ```bash
 npm run dev
 ```
+
+### 🧪 Testing
+Import the Postman collection (postman_collection.json) from this repo.
+Try POST /api/analyze and CRUD endpoints.
+
+<details>
+<summary><code>Postman Collection json</code></summary>
+👉🏻 Export a collection with:
+
+```json
+{
+    POST /api/analyze
+    GET /api/websites
+    GET /api/websites/:id
+    POST /api/websites
+    PUT /api/websites/:id
+    DELETE /api/websites/:id
+}
+```
+
+### 📡 API Endpoints
+
+- Analyze website
+
+`POST /api/analyze`
+`Content-Type: application/json`
+
+- Request Body
+
+`{ "url": "https://example.com" }`
+
+- Response
+```json
+{
+  "success": true,
+  "aiEnhanced": false,
+  "data": {
+    "id": "uuid",
+    "url": "https://example.com",
+    "brand_name": "Example Domain",
+    "description": "This domain is for use in illustrative examples...",
+    "created_at": "2025-09-05T12:34:56Z"
+  }
+}
+```
+</details>
+
+> [!NOTE]  
+> /api/analyze is rate-limited (5 requests/min per IP via Arcjet).  
+> AI enhancement only works if OPENAI_API_KEY is set. Otherwise, raw scraped description is stored.
+
+---
+### Short Note (Approach + Challenges)
+<details>
+  <summary><code>Short Note</code></summary>
+  
+```markdown
+## 📄 Short Note
+
+### Approach
+I started by scaffolding an Express.js project with modern ES modules.  
+Supabase was used as the database for storing website metadata.  
+I created RESTful CRUD endpoints and an `/api/analyze` endpoint that scrapes a site’s title and description using Axios + Cheerio.  
+
+Error handling and input validation were centralized in middleware.  
+To prevent abuse, I integrated Arcjet for rate limiting (5 requests/minute on `/api/analyze`).  
+As a bonus, I added optional AI enhancement of descriptions using OpenAI GPT-3.5.  
+
+### Challenges
+- **Scraping**: Many sites block bots or serve minimal metadata. I handled this by falling back to `<title>` and `meta[name=description]`.  
+- **AI**: Initially I tried Puter’s free GPT-5 Nano but it was blocked server-side. I reverted to OpenAI with a safe fallback to scraped text.  
+- **Rate limiting**: Arcjet required proper IP detection and `ARCJET_ENV=development` in dev mode to avoid warnings.  
+- **UUID handling**: Supabase enforces UUID format, so I had to validate IDs to prevent runtime errors.  
+
+Overall, the project demonstrates clean backend architecture, error resilience, and optional feature integration.
+```
+</details>
