@@ -1,4 +1,4 @@
-# Metafetchr
+# 🔎 MetaFetchR
 
 Metafetchr is a backend API built with **Express.js**, **Supabase**, and **Arcjet** for scraping and storing website metadata.  
 It also includes optional **AI enhancement** of descriptions using OpenAI.
@@ -28,13 +28,13 @@ git clone https://github.com/shayaan-git/MetaFetchR.git
 cd metafetchr
 ```
 
-### Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Create a .env file
+### 3. Create a .env file
 
 ```bash
 PORT=3000
@@ -49,28 +49,26 @@ ARCJET_KEY=demo
 ARCJET_ENV=development
 ```
 
-### Run Server
+### 4. Run Server
 
 ```bash
 npm run dev
 ```
 
-### 🧪 Testing
+### 5. 🧪 Testing
 Import the Postman collection (postman_collection.json) from this repo.
 Try POST /api/analyze and CRUD endpoints.
 
 ### 📡 API Endpoints
 
-- Analyze website
-
-`POST /api/analyze`
+> Analyze website
+- `POST /api/analyze`  
 `Content-Type: application/json`
 
-- Request Body
-
+> Request Body
 `{ "url": "https://example.com" }`
 
-- Response
+> Response
 ```json
 {
   "success": true,
@@ -86,11 +84,14 @@ Try POST /api/analyze and CRUD endpoints.
 ```
 </details>
 
+### 📌 Bonus Features
+- AI integration (OpenAI GPT-3.5)
+- Rate limiting (Arcjet)
+
 > [!NOTE]  
 > /api/analyze is rate-limited (5 requests/min per IP via Arcjet).  
 > AI enhancement only works if OPENAI_API_KEY is set. Otherwise, raw scraped description is stored.
 
----
 ### Short Note (Approach + Challenges)
 <details>
   <summary><code>Short Note</code></summary>
