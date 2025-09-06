@@ -59,21 +59,6 @@ npm run dev
 Import the Postman collection (postman_collection.json) from this repo.
 Try POST /api/analyze and CRUD endpoints.
 
-<details>
-<summary><code>Postman Collection json</code></summary>
-👉🏻 Export a collection with:
-
-```json
-{
-    POST /api/analyze
-    GET /api/websites
-    GET /api/websites/:id
-    POST /api/websites
-    PUT /api/websites/:id
-    DELETE /api/websites/:id
-}
-```
-
 ### 📡 API Endpoints
 
 - Analyze website
