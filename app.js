@@ -10,6 +10,9 @@ dotenv.config();    // load .env
 const app = express();      // create express app
 const PORT = process.env.PORT || 5000;
 
+// trust Render’s proxy headers in Express so req.ip resolves correctly for Arcjet
+app.set('trust proxy', true);
+
 app.use(express.json());    // parsing JSON bodies
 
 //Routes

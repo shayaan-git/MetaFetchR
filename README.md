@@ -61,12 +61,12 @@ Try POST /api/analyze and CRUD endpoints.
 
 ### 📡 API Endpoints
 
-- Analyze website
+- Analyze website  
 
 `POST /api/analyze`
 `Content-Type: application/json`
 
-- Request Body
+- Request Body  
 
 `{ "url": "https://example.com" }`
 
@@ -91,7 +91,7 @@ Try POST /api/analyze and CRUD endpoints.
 > AI enhancement only works if OPENAI_API_KEY is set. Otherwise, raw scraped description is stored.
 
 ---
-### Short Note (Approach + Challenges)
+### 📄 Short Note (Approach + Challenges)
 <details>
   <summary><code>Short Note</code></summary>
   
