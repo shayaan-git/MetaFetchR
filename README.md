@@ -55,36 +55,36 @@ ARCJET_ENV=development
 npm run dev
 ```
 
-### 5. 🧪 Testing
+## 5. 🧪 Testing
 Import the Postman collection (postman_collection.json) from this repo.
 Try POST /api/analyze and CRUD endpoints.
 
-### 📡 API Endpoints
+## 📡 API Endpoints
 
-- CRUD Website  
+### -> CRUD Website  
 
 `POST /api/websites`  
 `Content-Type: application/json`
 
-- Request Body for CRUD website  
-
-`{
-  "url": "https://example.com",  
-  "brandName": "your brand name example",  
-  "description": "your description example"  
-}`
-
-- Analyze website  
+### Request Body for CRUD website
+```json
+{
+  "url": "https://example.com",
+  "brandName": "your brand name example",
+  "description": "your description example"
+}
+```
+---
+### -> Analyze website  
 
 `POST /api/analyze`  
 `Content-Type: application/json`
 
-- Request Body for analyze  
+### Request Body for analyze  
 
 `{ "url": "https://example.com" }`
 
-- Response
-
+### Response
 ```json
 {
   "success": true,
