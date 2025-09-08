@@ -63,14 +63,15 @@ Try POST /api/analyze and CRUD endpoints.
 
 - Analyze website  
 
-`POST /api/analyze`
+`POST /api/analyze`  
 `Content-Type: application/json`
 
 - Request Body  
 
 `{ "url": "https://example.com" }`
 
-> Response
+- Response
+
 ```json
 {
   "success": true,
