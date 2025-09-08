@@ -61,12 +61,25 @@ Try POST /api/analyze and CRUD endpoints.
 
 ### 📡 API Endpoints
 
+- CRUD Website  
+
+`POST /api/websites`  
+`Content-Type: application/json`
+
+- Request Body for CRUD website  
+
+`{
+  "url": "https://example.com",
+  "brandName": "your brand name example" 
+  "description": "your description example" 
+}`
+
 - Analyze website  
 
 `POST /api/analyze`  
 `Content-Type: application/json`
 
-- Request Body  
+- Request Body for analyze  
 
 `{ "url": "https://example.com" }`
 
@@ -113,10 +126,10 @@ To prevent abuse, I integrated Arcjet for rate limiting (5 requests/minute on `/
 As a bonus, I added optional AI enhancement of descriptions using OpenAI GPT-3.5.  
 
 ### Challenges
-- **Scraping**: Many sites block bots or serve minimal metadata. I handled this by falling back to `<title>` and `meta[name=description]`.  
-- **AI**: Initially I tried Puter’s free GPT-5 Nano but it was blocked server-side. I reverted to OpenAI with a safe fallback to scraped text.  
-- **Rate limiting**: Arcjet required proper IP detection and `ARCJET_ENV=development` in dev mode to avoid warnings.  
-- **UUID handling**: Supabase enforces UUID format, so I had to validate IDs to prevent runtime errors.  
+- Scraping: Many sites block bots or serve minimal metadata. I handled this by falling back to `<title>` and `meta[name=description]`.  
+- AI: Initially I tried Puter’s free GPT-5 Nano but it was blocked server-side. I reverted to OpenAI with a safe fallback to scraped text.  
+- Rate limiting: Arcjet required proper IP detection and `ARCJET_ENV=development` in dev mode to avoid warnings.  
+- UUID handling: Supabase enforces UUID format, so I had to validate IDs to prevent runtime errors.  
 
 Overall, the project demonstrates clean backend architecture, error resilience, and optional feature integration.
 ```
