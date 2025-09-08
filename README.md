@@ -69,9 +69,9 @@ Try POST /api/analyze and CRUD endpoints.
 - Request Body for CRUD website  
 
 `{
-  "url": "https://example.com",
-  "brandName": "your brand name example" 
-  "description": "your description example" 
+  "url": "https://example.com",  
+  "brandName": "your brand name example",  
+  "description": "your description example"  
 }`
 
 - Analyze website  
