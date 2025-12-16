@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "MetaFetchR API",
-    "description": "Postman collection for MetaFetchR — POST /analyze and CRUD for /websites",
+    "description": "Postman collection for MetaFetchR - Website metadata Scraping and storage  — POST /api/analyze and CRUD for /api/websites",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -29,7 +29,7 @@
           "raw": "{\n  \"url\": \"https://example.com\"\n}"
         },
         "url": {
-          "raw": "{{base_url}}/analyze",
+          "raw": "{{base_url}}/api/analyze",
           "host": ["{{base_url}}"],
           "path": ["analyze"]
         }
@@ -41,7 +41,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/websites",
+          "raw": "{{base_url}}/api/websites",
           "host": ["{{base_url}}"],
           "path": ["websites"]
         }
@@ -53,14 +53,14 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/websites/:id",
+          "raw": "{{base_url}}/api/websites/:id",
           "host": ["{{base_url}}"],
           "path": ["websites", ":id"]
         }
       }
     },
     {
-      "name": "Create Website (optional - if your API supports POST /websites)",
+      "name": "Create Website (optional)",
       "request": {
         "method": "POST",
         "header": [
@@ -71,7 +71,7 @@
           "raw": "{\n  \"url\": \"https://example.com\",\n  \"brand\": \"Example Brand\",\n  \"description\": \"Short description or notes\"\n}"
         },
         "url": {
-          "raw": "{{base_url}}/websites",
+          "raw": "{{base_url}}/api/websites",
           "host": ["{{base_url}}"],
           "path": ["websites"]
         }
@@ -89,7 +89,7 @@
           "raw": "{\n  \"brand\": \"Updated Brand\",\n  \"description\": \"Updated description\"\n}"
         },
         "url": {
-          "raw": "{{base_url}}/websites/:id",
+          "raw": "{{base_url}}/api/websites/:id",
           "host": ["{{base_url}}"],
           "path": ["websites", ":id"]
         }
@@ -101,7 +101,7 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/websites/:id",
+          "raw": "{{base_url}}/api/websites/:id",
           "host": ["{{base_url}}"],
           "path": ["websites", ":id"]
         }
